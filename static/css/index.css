@@ -18,7 +18,7 @@ body {
     width: 70%; /* 70% da largura da página */
     height: 80%; /* Ajusta a altura para 80% da tela */
     background-color: white;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
