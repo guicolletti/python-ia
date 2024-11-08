@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot IA</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
-
+    <script src="{{ url_for('static', filename='js/index.js') }}" defer></script>
 </head>
 <body>
     <div class="chat-container">
@@ -19,14 +18,13 @@
             </div>
         </div>
         <div class="chat-input">
-            <input
-                type="text"
-                id="userInput"
-                placeholder="Digite sua mensagem e aperte [Enter]"
-                autocomplete="off"
+            <input 
+                type="text" 
+                id="userInput" 
+                placeholder="Digite sua mensagem e aperte [Enter]" 
+                autocomplete="off" 
                 onkeypress="checkEnter(event)">
         </div>
     </div>
-
 </body>
 </html>
