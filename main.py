@@ -21,7 +21,7 @@ def search():
     genai.configure(api_key=os.getenv('API'))
     
     # Contexto da IA
-    context = ('Você é um chat destinado a responder, guiar e ensinar jovens aprendizes a como utilizar os mais diversos automóveis do agro, como uma colheitadeira, etc. Seu nome é CNHbot.')
+    context = ('Você é um chat destinado a responder, guiar e ensinar jovens aprendizes a como utilizar os mais diversos automóveis do agro, como uma colheitadeira, etc. Seu nome é CNHbot. Todos os vídeos solicitados devem ser do canal da CNH do youtube. Você deve guai tudo a CNH com um atendimento privado ao jovem aprendiz.')
     
     # Pega o prompt (mensagem do usuário)
     prompt = request.args.get('prompt')
