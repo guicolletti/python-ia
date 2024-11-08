@@ -2,10 +2,15 @@ async function fetchBotResponse(messageText) {
     try {
         const response = await fetch(`${window.location.href}search?prompt=${messageText}`);
         const data = await response.json();
-        return data.message;
+        
+        if (data.video) {
+            return { text: data.message, video: data.video };
+        } else {
+            return { text: data.message };
+        }
     } catch (error) {
         console.error('Erro ao buscar dados:', error);
-        return 'Desculpe, não consegui buscar uma resposta agora.';
+        return { text: 'Desculpe, não consegui buscar uma resposta agora.' };
     }
 }
 
@@ -31,17 +36,20 @@ async function sendMessage() {
         const botResponse = await fetchBotResponse(messageText);
 
         chatWindow.removeChild(loadingMessage);
-        const botMessage = document.createElement('div');
-        botMessage.className = 'message bot';
-        botMessage.innerHTML = `<span>${botResponse}</span>`;
-        chatWindow.appendChild(botMessage);
+
+        // Se a resposta incluir um vídeo
+        if (botResponse.video) {
+            const botVideo = document.createElement('div');
+            botVideo.className = 'message bot';
+            botVideo.innerHTML = `<span>${botResponse.text}</span><br>${botResponse.video}`;
+            chatWindow.appendChild(botVideo);
+        } else {
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot';
+            botMessage.innerHTML = `<span>${botResponse.text}</span>`;
+            chatWindow.appendChild(botMessage);
+        }
 
         chatWindow.scrollTop = chatWindow.scrollHeight;
-    }
-}
-
-function checkEnter(event) {
-    if (event.key === 'Enter') {
-        sendMessage();
     }
 }
