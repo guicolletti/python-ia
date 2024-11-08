@@ -21,8 +21,14 @@ def search():
     prompt = request.args.get('prompt')
     input_ia = f'{context}: {prompt}'
     output = model.generate_content(input_ia)
-    return {'message': output.text}
-
+    
+    # Aqui, adicionamos uma lógica para verificar se a resposta contém um pedido de vídeo
+    video_response = None
+    if 'vídeo' in prompt.lower():
+        # Você pode retornar um link direto para um vídeo (pode ser do YouTube ou outro serviço de vídeos)
+        video_response = "<iframe width='560' height='315' src='https://www.youtube.com/embed/dQw4w9WgXcQ' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+    
+    return {'message': output.text, 'video': video_response}
 
 if __name__ == '__main__':
     app.run(debug=True)
