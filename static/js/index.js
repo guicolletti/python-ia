@@ -5,7 +5,6 @@ function checkEnter(event) {
     }
 }
 
-// Função que envia a mensagem do usuário
 async function sendMessage() {
     const userInput = document.getElementById('userInput');
     const chatWindow = document.getElementById('chatWindow');
@@ -47,7 +46,6 @@ async function sendMessage() {
     }
 }
 
-// Função que faz a requisição ao backend para obter a resposta do bot
 async function fetchBotResponse(messageText) {
     try {
         const response = await fetch(`${window.location.href}search?prompt=${messageText}`);
