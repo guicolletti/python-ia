@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #5b1616;
+    background-color: #109010;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +26,7 @@ body {
 }
 
 .chat-header {
-    background-color: #4d1313;
+    background-color: #0a5c0a;
     color: white;
     text-align: center;
     padding: 15px;
